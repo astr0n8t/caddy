@@ -87,7 +87,7 @@ jobs:
             ghcr.io/astr0n8t/caddy-cloudflare:latest
             ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
+          #cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
 
