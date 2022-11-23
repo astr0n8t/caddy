@@ -1,8 +1,8 @@
-ARG TARGETARCH
+ARG TARGETOS TARGETARCH
 
 FROM caddy:2-builder AS builder
 
-RUN GOARCH=$TARGETARCH xcaddy build \
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH xcaddy build \
     --with github.com/caddy-dns/cloudflare
 
 FROM caddy:2
