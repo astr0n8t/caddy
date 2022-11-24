@@ -1,10 +1,10 @@
-ARG BUILDPLATFORM=linux/amd64
+ARG BUILDPLATFORM
+FROM --platform=$BUILDPLATFORM caddy:2-builder AS builder
+
 ARG TARGETOS
 ARG TARGETARCH
 
-FROM --platform=$BUILDPLATFORM caddy:2-builder AS builder
-
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH xcaddy build \
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} xcaddy build \
     --with github.com/caddy-dns/cloudflare
 
 FROM caddy:2
