@@ -1,5 +1,5 @@
 ARG BUILDPLATFORM
-FROM --platform=$BUILDPLATFORM caddy:2-builder AS builder
+FROM --platform=${BUILDPLATFORM} caddy:2-builder AS builder
 
 ARG TARGETOS
 ARG TARGETARCH
